@@ -1,0 +1,28 @@
+// ========== Colours ==========
+// please use http://chir.ag/projects/name-that-color for names
+$scorpion: #4a4a4a; // primary font color
+$dusty_grey: #9b9b9b; // filter bar text
+$mercury: #e7e7e7; // sidebar and dashboard background color
+$wild_sand: #f5f5f5; // light gray background
+$dd_blue: #4a90e2; // The blue we use in our logo
+$malibu: #86bdfd; // light blue accent color
+$buttercup: #f5a623; // bright orange for mouse overs and highlights
+$astronaut: #254770; // topics blue, needed for fixes.
+
+$brand-color: $buttercup;
+$brand-color-lighter: desaturate(lighten($brand-color, 55%), 40%);
+$brand-neutral-colors: (#425563, #5F7A76, #80746E, #767676) !default;
+$brand-accent-colors: (#2AD2C9, #614767, #ff8d6d) !default;
+$brand-status-colors: (
+  critical: #F04953,
+  error: #F04953,
+  warning: #FFD144,
+  ok: $brand-color,
+  unknown: #CCCCCC,
+  disabled: #CCCCCC
+);
+$brand-link-color: inherit;
+$link-hover-color: #000;
+$brand-link-text-decoration: underline;
+$brand-grey-colors: (#000001, #333333, #3B3B3B, #434343, #666666);
+$brand-graph-colors: $brand-neutral-colors;

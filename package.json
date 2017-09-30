@@ -1,0 +1,48 @@
+{
+  "name": "active-record-ecto-comparison",
+  "description": "Comparing Active Record x Ecto using queries",
+  "version": "1.0.0",
+  "author": "Franze Jr <franzejr@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/dailydrip/active-record-ecto"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "git clean -xfd .cache public/",
+    "serve": "yarn run clean && yarn run build && gatsby serve",
+    "deploy": "yarn run build -- --prefix-paths && gh-pages -d public"
+  },
+  "dependencies": {
+    "apisauce": "^0.14.1",
+    "autoprefixer": "^7.1.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "gatsby": "^1.9.26",
+    "gatsby-link": "^1.3.2",
+    "gatsby-plugin-favicon": "^1.0.0",
+    "gatsby-plugin-manifest": "^1.0.7",
+    "gatsby-plugin-offline": "^1.0.9",
+    "gatsby-plugin-react-helmet": "^1.0.6",
+    "grommet": "^1.5.0",
+    "node-sass": "^4.5.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^4.1.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
+  },
+  "homepage": "https://github.com/dailydrip/active-record-ecto",
+  "keywords": [
+    "gatsby",
+    "starter",
+    "gatsby-starter"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dailydrip/active-record-ecto"
+  }
+}
