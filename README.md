@@ -4,7 +4,8 @@ Using queries, we compare Active Record to Ecto.
 
 ## Contribute
 
-You can contribute.
+You can contribute! Create a new query on [queries](/static/queries/). There is
+a title.md, ecto.md and active_record.md
 
 ### About DailyDrip
 

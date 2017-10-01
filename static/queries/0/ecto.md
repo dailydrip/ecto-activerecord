@@ -1,0 +1,3 @@
+```elixir
+Repo.all(query)
+```

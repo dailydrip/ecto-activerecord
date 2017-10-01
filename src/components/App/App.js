@@ -20,16 +20,20 @@ import Logo from "grommet/components/icons/Grommet";
 import DailyDripApi from "../../api/DailyDripApi";
 import Row from "../Row";
 
+const TOTAL = 1;
+
 export default class App extends React.Component {
   render() {
+    let rows = [];
+    for (let i = 0; i < TOTAL; i++) {
+      rows.push(<Row index={i} />);
+    }
     return (
       <Article pad="none">
         <Header pad="medium" fixed={true}>
           <Title>Active Record vs Ecto</Title>
         </Header>
-        <Row />
-        <Row />
-        <Row />
+        {rows}
         <Footer justify="between">
           <Title>
             <s />
