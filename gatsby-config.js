@@ -49,12 +49,12 @@ module.exports = {
           // Our js and css, we'd like to change them
           {
             urlPattern: /\.(?:js|css)$/,
-            handler: `networkFirst`
+            handler: `cacheFirst`
           },
           //our API should always be checked for the latest episode
           {
-            urlPattern: /dailydrip/,
-            handler: `networkFirst`
+            urlPattern: /queries/,
+            handler: `cacheFirst`
           }
         ]
       }
