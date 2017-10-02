@@ -43,7 +43,7 @@ export default class App extends React.Component {
               DailyDrip.com
             </Paragraph>
             <Menu direction="row" size="small" dropAlign={{ right: "right" }}>
-              <Anchor href="#">
+              <Anchor href="https://www.dailydrip.com/topics/elixir">
                 Learn Elixir/Phoenix
               </Anchor>
             </Menu>

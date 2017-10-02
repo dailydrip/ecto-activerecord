@@ -42,7 +42,7 @@ export default class Row extends React.Component {
           align="center"
           style={{ color: "white" }}
         >
-          Title
+          {this.state.title}
         </Heading>
         <Columns masonry={false} maxCount={2} justify="center" size="large">
           <Box align="center" pad="medium" margin="small" colorIndex="light-2">
