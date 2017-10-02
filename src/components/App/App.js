@@ -20,7 +20,7 @@ import Logo from "grommet/components/icons/Grommet";
 import DailyDripApi from "../../api/DailyDripApi";
 import Row from "../Row";
 
-const TOTAL = 1;
+const TOTAL = 3;
 
 export default class App extends React.Component {
   render() {

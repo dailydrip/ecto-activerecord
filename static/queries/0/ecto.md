@@ -1,3 +1,3 @@
 ```elixir
-Repo.all(query)
+App.Repo.all(App.Model)
 ```
