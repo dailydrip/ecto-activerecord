@@ -20,12 +20,19 @@ import Logo from "grommet/components/icons/Grommet";
 import DailyDripApi from "../../api/DailyDripApi";
 import Row from "../Row";
 
-const TOTAL = 3;
-
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { total: 0 };
+  }
+  componentDidMount() {
+    fetch(`queries/total.txt`)
+      .then(response => response.text())
+      .then(total => this.setState({ total: total }));
+  }
   render() {
     let rows = [];
-    for (let i = 0; i < TOTAL; i++) {
+    for (let i = 0; i < this.state.total; i++) {
       rows.push(<Row index={i} />);
     }
     return (
