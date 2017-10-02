@@ -53,7 +53,7 @@ module.exports = {
           },
           //our API should always be checked for the latest episode
           {
-            urlPattern: /queries/,
+            urlPattern: /queries\/.*/,
             handler: `cacheFirst`
           }
         ]
