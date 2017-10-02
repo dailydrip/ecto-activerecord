@@ -26,7 +26,7 @@ export default class App extends React.Component {
     this.state = { total: 0 };
   }
   componentDidMount() {
-    fetch(`queries/total.txt`)
+    fetch(`total.txt`)
       .then(response => response.text())
       .then(total => this.setState({ total: total }));
   }
