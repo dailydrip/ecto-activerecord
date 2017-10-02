@@ -46,6 +46,9 @@ export default class App extends React.Component {
               <Anchor href="https://www.dailydrip.com/topics/elixir">
                 Learn Elixir/Phoenix
               </Anchor>
+              <Anchor href="https://github.com/dailydrip/ecto-activerecord">
+                Contribute
+              </Anchor>
             </Menu>
           </Box>
         </Footer>
