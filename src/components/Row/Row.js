@@ -4,6 +4,7 @@ import Box from "grommet/components/Box";
 import Heading from "grommet/components/Heading";
 import Columns from "grommet/components/Columns";
 import Markdown from "grommet/components/Markdown";
+import Value from "grommet/components/Value";
 
 export default class Row extends React.Component {
   constructor() {
@@ -45,9 +46,29 @@ export default class Row extends React.Component {
           {this.state.title}
         </Heading>
         <Columns masonry={false} maxCount={2} justify="center" size="large">
+          <small
+            style={{
+              marginRight: "0.8rem",
+              flex: 1,
+              color: "white",
+              alignSelf: "flex-end"
+            }}
+          >
+            Active record
+          </small>
           <Box align="center" pad="medium" margin="small" colorIndex="light-2">
             <Markdown content={this.state.active_record} />
           </Box>
+          <small
+            style={{
+              marginRight: "0.8rem",
+              flex: 1,
+              color: "white",
+              alignSelf: "flex-end"
+            }}
+          >
+            Ecto
+          </small>
           <Box align="center" pad="medium" margin="small" colorIndex="light-2">
             <Markdown content={this.state.ecto} />
           </Box>
