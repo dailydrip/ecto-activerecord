@@ -4,6 +4,7 @@ import Box from "grommet/components/Box";
 import Heading from "grommet/components/Heading";
 import Columns from "grommet/components/Columns";
 import Markdown from "grommet/components/Markdown";
+import PrismCode from "react-prism";
 
 export default class Row extends React.Component {
   constructor() {
@@ -46,10 +47,14 @@ export default class Row extends React.Component {
         </Heading>
         <Columns masonry={false} maxCount={2} justify="center" size="large">
           <Box align="center" pad="medium" margin="small" colorIndex="light-2">
-            <Markdown content={this.state.active_record} />
+            <PrismCode className="language-ruby">
+              {this.state.active_record}
+            </PrismCode>
           </Box>
           <Box align="center" pad="medium" margin="small" colorIndex="light-2">
-            <Markdown content={this.state.ecto} />
+            <PrismCode className="language-elixir">
+              {this.state.ecto}
+            </PrismCode>
           </Box>
         </Columns>
       </div>
