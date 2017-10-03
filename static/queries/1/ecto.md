@@ -1,1 +1,1 @@
-App.Repo.one(from t in App.Model, where: t.name == ^name, limit: 1)
+Repo.one(from t in App.Model, where: t.name == ^name, limit: 1)
