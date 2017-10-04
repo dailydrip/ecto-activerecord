@@ -54,7 +54,7 @@ export default class Row extends React.Component {
               alignSelf: "flex-end"
             }}
           >
-            Active record
+            ActiveRecord
           </small>
           <Box align="center" pad="medium" margin="small" colorIndex="light-2">
             <Markdown content={this.state.active_record} />
