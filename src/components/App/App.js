@@ -33,7 +33,7 @@ export default class App extends React.Component {
   render() {
     let rows = [];
     for (let i = 0; i < this.state.total; i++) {
-      rows.push(<Row index={i} />);
+      rows.push(<Row key={i} index={i} />);
     }
     return (
       <Article pad="none">
@@ -45,7 +45,7 @@ export default class App extends React.Component {
           <Title>
             <s />
           </Title>
-          <Box direction="row" align="right" pad={{ between: "medium" }}>
+          <Box direction="row" pad={{ between: "medium" }}>
             <Paragraph margin="none">
               DailyDrip.com
             </Paragraph>
