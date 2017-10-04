@@ -1,1 +1,1 @@
-Model |> Repo.get(1)
+Model |> Repo.get!(1)
