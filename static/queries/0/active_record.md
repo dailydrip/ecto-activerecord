@@ -1,3 +1,3 @@
 ```ruby
-Something.all
+User.all
 ```

@@ -1,1 +1,1 @@
-Search for an element by name
+Get a user by name
