@@ -1,2 +1,1 @@
-Fetch a single record based on id=1
-
+Fetch user with id=1
