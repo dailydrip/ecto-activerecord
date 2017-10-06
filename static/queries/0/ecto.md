@@ -1,1 +1,1 @@
-Repo.all(App.Model)
+Repo.all(User)

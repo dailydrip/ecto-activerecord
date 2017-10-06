@@ -1,1 +1,1 @@
-Model.find(1)
+User.find(1)

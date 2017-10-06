@@ -1,1 +1,1 @@
-Model.find_by(name: name)
+User.find_by(name: "Josh")

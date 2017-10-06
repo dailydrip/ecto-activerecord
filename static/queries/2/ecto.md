@@ -1,1 +1,1 @@
-Model |> Repo.get!(1)
+Repo.get!(User, 1)
