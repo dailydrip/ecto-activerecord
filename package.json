@@ -24,6 +24,8 @@
     "gatsby-plugin-manifest": "^1.0.7",
     "gatsby-plugin-offline": "^1.0.9",
     "gatsby-plugin-react-helmet": "^1.0.6",
+    "gatsby-source-filesystem": "^1.5.2",
+    "gatsby-transformer-remark": "^1.7.15",
     "grommet": "^1.5.0",
     "node-sass": "^4.5.2",
     "prop-types": "^15.5.10",

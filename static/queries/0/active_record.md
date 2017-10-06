@@ -1,3 +1,1 @@
-```ruby
 User.all
-```

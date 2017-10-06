@@ -6,74 +6,62 @@ import Columns from "grommet/components/Columns";
 import Markdown from "grommet/components/Markdown";
 import Value from "grommet/components/Value";
 
-export default class Row extends React.Component {
-  constructor() {
-    super();
-    this.state = { title: "", ecto: "", active_record: "" };
-  }
+export default ({ rowContent }) => {
+  let active_record, ecto, title;
 
-  componentDidMount() {
-    const { index } = this.props;
-    fetch(`queries/${index}/title.md`)
-      .then(response => response.text())
-      .then(text => this.setState({ title: text }));
-
-    fetch(`queries/${index}/ecto.md`)
-      .then(response => response.text())
-      .then(text => this.setState({ ecto: text }));
-
-    fetch(`queries/${index}/active_record.md`)
-      .then(response => response.text())
-      .then(text => this.setState({ active_record: text }));
-  }
-  render() {
-    const { index } = this.props;
-
-    return (
-      <div
-        style={{
-          backgroundColor: "#434343",
-          marginTop: "2px",
-          marginBottom: "2px"
-        }}
+  rowContent.map(elem => {
+    if (elem.hasOwnProperty("active_record")) {
+      active_record = elem.active_record;
+    } else if (elem.hasOwnProperty("ecto")) {
+      ecto = elem.ecto;
+    } else if (elem.hasOwnProperty("title")) {
+      title = elem.title;
+    }
+  });
+  return (
+    <div
+      style={{
+        backgroundColor: "#434343",
+        marginTop: "2px",
+        marginBottom: "2px"
+      }}
+    >
+      <Heading
+        tag="h2"
+        margin="small"
+        align="center"
+        style={{ color: "white" }}
       >
-        <Heading
-          tag="h2"
-          margin="small"
-          align="center"
-          style={{ color: "white" }}
+        {title}
+      </Heading>
+      <Columns masonry={false} maxCount={2} justify="center" size="large">
+        <small
+          style={{
+            marginRight: "0.8rem",
+            flex: 1,
+            color: "white",
+            alignSelf: "flex-end"
+          }}
         >
-          {this.state.title}
-        </Heading>
-        <Columns masonry={false} maxCount={2} justify="center" size="large">
-          <small
-            style={{
-              marginRight: "0.8rem",
-              flex: 1,
-              color: "white",
-              alignSelf: "flex-end"
-            }}
-          >
-            ActiveRecord
-          </small>
-          <Box align="center" pad="medium" margin="small" colorIndex="light-2">
-            <Markdown content={this.state.active_record} />
-          </Box>
-          <small
-            style={{
-              marginRight: "0.8rem",
-              flex: 1,
-              color: "white",
-              alignSelf: "flex-end"
-            }}
-          >
-            Ecto
-          </small>
-          <Box align="center" pad="medium" margin="small" colorIndex="light-2">
-            <Markdown content={this.state.ecto} />
-          </Box>
-        </Columns>
-      </div>
-    );
-  }
-}
+          ActiveRecord
+        </small>
+        <Box align="center" pad="medium" margin="small" colorIndex="light-2">
+          <Markdown content={active_record} />
+        </Box>
+        <small
+          style={{
+            marginRight: "0.8rem",
+            flex: 1,
+            color: "white",
+            alignSelf: "flex-end"
+          }}
+        >
+          Ecto
+        </small>
+        <Box align="center" pad="medium" margin="small" colorIndex="light-2">
+          <Markdown content={ecto} />
+        </Box>
+      </Columns>
+    </div>
+  );
+};

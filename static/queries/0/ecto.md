@@ -1,3 +1,1 @@
-```elixir
 Repo.all(User)
-```

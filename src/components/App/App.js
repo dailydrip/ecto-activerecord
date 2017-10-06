@@ -19,47 +19,63 @@ import Anchor from "grommet/components/Anchor";
 import Logo from "grommet/components/icons/Grommet";
 import DailyDripApi from "../../api/DailyDripApi";
 import Row from "../Row";
+import HeaderMenu from "./HeaderMenu";
 
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = { total: 0 };
+export default ({ files }) => {
+  const totalQueries = files.totalCount;
+  let rowsToBeRendered = [];
+  let rows = [];
+  let key, content;
+
+  for (let i = 0; i < totalQueries; i += 3) {
+    rows[i] = [];
+
+    key = files.edges[i].node.name;
+    content = files.edges[i].node.childMarkdownRemark.excerpt;
+
+    rows[i].push({ [key]: content });
+
+    key = files.edges[i + 1].node.name;
+    content = files.edges[i + 1].node.childMarkdownRemark.excerpt;
+
+    rows[i].push({ [key]: content });
+
+    key = files.edges[i + 2].node.name;
+    content = files.edges[i + 2].node.childMarkdownRemark.excerpt;
+
+    rows[i].push({ [key]: content });
+
+    rowsToBeRendered.push(<Row key={i} index={i} rowContent={rows[i]} />);
   }
-  componentDidMount() {
-    fetch(`total.txt`)
-      .then(response => response.text())
-      .then(total => this.setState({ total: total }));
-  }
-  render() {
-    let rows = [];
-    for (let i = 0; i < this.state.total; i++) {
-      rows.push(<Row key={i} index={i} />);
-    }
-    return (
-      <Article pad="none">
-        <Header pad="medium" fixed={true}>
-          <Title>Active Record vs Ecto</Title>
-        </Header>
-        {rows}
-        <Footer justify="between">
-          <Title>
-            <s />
-          </Title>
-          <Box direction="row" pad={{ between: "medium" }}>
-            <Paragraph margin="none">
-              DailyDrip.com
-            </Paragraph>
-            <Menu direction="row" size="small" dropAlign={{ right: "right" }}>
-              <Anchor href="https://www.dailydrip.com/topics/elixir">
-                Learn Elixir/Phoenix
-              </Anchor>
-              <Anchor href="https://github.com/dailydrip/ecto-activerecord">
-                Contribute
-              </Anchor>
-            </Menu>
-          </Box>
-        </Footer>
-      </Article>
-    );
-  }
-}
+  return (
+    <Article pad="none">
+      <Box direction="row">
+        <Box direction="row" pad="medium">
+          <Header>
+            <Title>Active Record vs Ecto</Title>
+          </Header>
+        </Box>
+        <Box full="horizontal" direction="row" pad="medium" justify="end">
+          <HeaderMenu />
+        </Box>
+      </Box>
+      {rowsToBeRendered}
+      <Footer justify="between">
+        <Title />
+        <Box direction="row" pad={{ between: "medium" }}>
+          <Paragraph margin="none">
+            DailyDrip.com
+          </Paragraph>
+          <Menu direction="row" size="small" dropAlign={{ right: "right" }}>
+            <Anchor href="https://www.dailydrip.com/topics/elixir">
+              Learn Elixir/Phoenix
+            </Anchor>
+            <Anchor href="https://github.com/dailydrip/ecto-activerecord">
+              Contribute
+            </Anchor>
+          </Menu>
+        </Box>
+      </Footer>
+    </Article>
+  );
+};
