@@ -52,7 +52,9 @@ export default ({ files }) => {
       <Box direction="row">
         <Box direction="row" pad="medium">
           <Header>
-            <img src='/favicons/favicon.ico' />
+            <Anchor href='https://www.dailydrip.com' target='_blank'>
+              <img src='/favicons/favicon.ico' />
+            </Anchor>
             <Title>Active Record vs Ecto</Title>
           </Header>
         </Box>
