@@ -60,6 +60,14 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `queries`,
+        path: `${__dirname}/static/queries`
+      }
+    },
+    `gatsby-transformer-remark`,
+    {
       resolve: "custom-sass-loader",
       options: {
         postCssPlugins: [
