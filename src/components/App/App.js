@@ -19,6 +19,7 @@ import Anchor from "grommet/components/Anchor";
 import Logo from "grommet/components/icons/Grommet";
 import DailyDripApi from "../../api/DailyDripApi";
 import Row from "../Row";
+import Test from "../Row/Test";
 
 export default class App extends React.Component {
   constructor() {
@@ -38,7 +39,7 @@ export default class App extends React.Component {
     return (
       <Article pad="none">
         <Box direction="row">
-          <Box drection="row" pad="medium">
+          <Box direction="row" pad="medium">
             <Header>
               <Title>Active Record vs Ecto</Title>
             </Header>
@@ -57,6 +58,7 @@ export default class App extends React.Component {
             </Menu>
           </Box>
         </Box>
+        <Test />
         {rows}
         <Footer justify="between">
           <Title>
