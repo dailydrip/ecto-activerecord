@@ -52,6 +52,7 @@ export default ({ files }) => {
       <Box direction="row">
         <Box direction="row" pad="medium">
           <Header>
+            <img src='/favicons/favicon.ico' />
             <Title>Active Record vs Ecto</Title>
           </Header>
         </Box>
