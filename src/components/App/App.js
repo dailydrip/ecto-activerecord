@@ -37,9 +37,26 @@ export default class App extends React.Component {
     }
     return (
       <Article pad="none">
-        <Header pad="medium" fixed={true}>
-          <Title>Active Record vs Ecto</Title>
-        </Header>
+        <Box direction="row">
+          <Box drection="row" pad="medium">
+            <Header>
+              <Title>Active Record vs Ecto</Title>
+            </Header>
+          </Box>
+          <Box full="horizontal" direction="row" pad="medium" justify="end">
+            <Menu closeOnClick={true} label="Label">
+              <Anchor href="#" className="active">
+                First action
+              </Anchor>
+              <Anchor href="#">
+                Second action
+              </Anchor>
+              <Anchor href="#">
+                Third action
+              </Anchor>
+            </Menu>
+          </Box>
+        </Box>
         {rows}
         <Footer justify="between">
           <Title>
