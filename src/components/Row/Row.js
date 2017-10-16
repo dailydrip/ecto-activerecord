@@ -7,17 +7,9 @@ import Markdown from "grommet/components/Markdown";
 import Value from "grommet/components/Value";
 
 export default ({ rowContent }) => {
-  let active_record, ecto, title;
+  let { active_record, ecto, key, title } = rowContent;
+  console.log(key);
 
-  rowContent.map(elem => {
-    if (elem.hasOwnProperty("active_record")) {
-      active_record = elem.active_record;
-    } else if (elem.hasOwnProperty("ecto")) {
-      ecto = elem.ecto;
-    } else if (elem.hasOwnProperty("title")) {
-      title = elem.title;
-    }
-  });
   return (
     <div
       style={{
@@ -32,7 +24,7 @@ export default ({ rowContent }) => {
         align="center"
         style={{ color: "white" }}
       >
-        {title}
+        {title.childMarkdownRemark.fields.contents}
       </Heading>
       <Columns masonry={false} maxCount={2} justify="center" size="large">
         <small
@@ -46,7 +38,9 @@ export default ({ rowContent }) => {
           ActiveRecord
         </small>
         <Box align="center" pad="medium" margin="small" colorIndex="light-2">
-          <Markdown content={active_record} />
+          <Markdown
+            content={active_record.childMarkdownRemark.fields.contents}
+          />
         </Box>
         <small
           style={{
@@ -59,7 +53,7 @@ export default ({ rowContent }) => {
           Ecto
         </small>
         <Box align="center" pad="medium" margin="small" colorIndex="light-2">
-          <Markdown content={ecto} />
+          <Markdown content={ecto.childMarkdownRemark.fields.contents} />
         </Box>
       </Columns>
     </div>

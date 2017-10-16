@@ -8,7 +8,7 @@ export default ({ data }) => {
   return (
     <div>
       <Helmet>
-        <title>DailyDrip - Active  Record vs Ecto queries</title>
+        <title>DailyDrip - Active Record vs Ecto queries</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -50,6 +50,9 @@ export const pageQuery = graphql`
           childMarkdownRemark {
             excerpt
             html
+            fields {
+              contents
+            }
           }
         }
       }

@@ -20,55 +20,46 @@ import Logo from "grommet/components/icons/Grommet";
 import DailyDripApi from "../../api/DailyDripApi";
 import Row from "../Row";
 import HeaderMenu from "./HeaderMenu";
+import { mapValues } from "lodash";
 
 export default ({ files }) => {
   const totalQueries = files.totalCount;
-  let rowsToBeRendered = [];
   let rows = [];
   let key, content;
 
-  for (let i = 0; i < totalQueries; i += 3) {
-    rows[i] = [];
+  let rowData = files.edges.reduce((acc, edge) => {
+    // generate row data
+    let key = edge.node.relativePath.split("/")[0];
+    let name = edge.node.name;
+    acc[key] = acc[key] || {};
+    acc[key][name] = edge.node;
+    acc[key]["key"] = key;
+    return acc;
+  }, {});
 
-    key = files.edges[i].node.name;
-    content = files.edges[i].node.childMarkdownRemark.excerpt;
-
-    rows[i].push({ [key]: content });
-
-    key = files.edges[i + 1].node.name;
-    content = files.edges[i + 1].node.childMarkdownRemark.excerpt;
-
-    rows[i].push({ [key]: content });
-
-    key = files.edges[i + 2].node.name;
-    content = files.edges[i + 2].node.childMarkdownRemark.excerpt;
-
-    rows[i].push({ [key]: content });
-
-    rowsToBeRendered.push(<Row key={i} index={i} rowContent={rows[i]} />);
-  }
+  const rowsToBeRendered = Object.values(rowData).map(row => (
+    <Row key={key} index={key} rowContent={row} />
+  ));
   return (
     <Article pad="none">
       <Box direction="row">
         <Box direction="row" pad="medium">
           <Header>
-            <Anchor href='https://www.dailydrip.com' target='_blank'>
-              <img src='/favicons/favicon.ico' />
+            <Anchor href="https://www.dailydrip.com" target="_blank">
+              <img src="/favicons/favicon.ico" />
             </Anchor>
-            <Title>Active Record vs Ecto</Title>
+            <Title>ActiveRecord vs Ecto</Title>
           </Header>
         </Box>
         <Box full="horizontal" direction="row" pad="medium" justify="end">
           <HeaderMenu />
         </Box>
       </Box>
-      {rowsToBeRendered}
+      <div>{rowsToBeRendered}</div>
       <Footer justify="between">
         <Title />
         <Box direction="row" pad={{ between: "medium" }}>
-          <Paragraph margin="none">
-            DailyDrip.com
-          </Paragraph>
+          <Paragraph margin="none">DailyDrip.com</Paragraph>
           <Menu direction="row" size="small" dropAlign={{ right: "right" }}>
             <Anchor href="https://www.dailydrip.com/topics/elixir">
               Learn Elixir/Phoenix
