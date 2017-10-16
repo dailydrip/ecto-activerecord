@@ -2,3 +2,15 @@
 @import '~grommet/scss/grommet-core/index';
 @import '~grommet/scss/hpe/_objects.button-hpe';
 @import '~grommet/scss/hpe/_objects.anchor-hpe';
+@import '~prismjs/themes/prism-solarizedlight.css';
+
+pre[class*="language-"] {
+  border: none;
+  border-radius: 0;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .grommetux-card.grommetux-box--responsive {
+    width: 100%;
+  }
+}

@@ -13,10 +13,6 @@ export default class IndexLayout extends React.Component {
   };
 
   render() {
-    return (
-      <App>
-        {this.props.children()}
-      </App>
-    );
+    return <App centered={false}>{this.props.children()}</App>;
   }
 }

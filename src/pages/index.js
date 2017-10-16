@@ -1,6 +1,14 @@
 import React from "react";
 import App from "../components/App";
+import Header from "grommet/components/Header";
+import Split from "grommet/components/Split";
 import Helmet from "react-helmet";
+import Sidebar from "grommet/components/Sidebar";
+import Title from "grommet/components/Title";
+import Box from "grommet/components/Box";
+import Paragraph from "grommet/components/Paragraph";
+import Menu from "grommet/components/Menu";
+import Anchor from "grommet/components/Anchor";
 
 export default ({ data }) => {
   console.log("data", data);
@@ -8,7 +16,7 @@ export default ({ data }) => {
   return (
     <div>
       <Helmet>
-        <title>DailyDrip - Active  Record vs Ecto queries</title>
+        <title>DailyDrip - Active Record vs Ecto queries</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -50,6 +58,9 @@ export const pageQuery = graphql`
           childMarkdownRemark {
             excerpt
             html
+            fields {
+              contents
+            }
           }
         }
       }
