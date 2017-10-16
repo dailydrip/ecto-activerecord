@@ -2,6 +2,7 @@ import React from "react";
 
 import SocialShare from "grommet/components/SocialShare";
 import App from "grommet/components/App";
+import Button from "grommet/components/Button";
 import Split from "grommet/components/Split";
 import Sidebar from "grommet/components/Sidebar";
 import Menu from "grommet/components/Menu";
@@ -62,14 +63,23 @@ export default ({ files }) => {
             </Paragraph>
           </Box>
           <Footer alignSelf="end">
-            <Menu direction="row" size="small" dropAlign={{ right: "right" }}>
-              <Anchor href="https://www.dailydrip.com/topics/elixir">
-                Learn Elixir/Phoenix
-              </Anchor>
-              <Anchor href="https://github.com/dailydrip/ecto-activerecord">
-                Contribute
-              </Anchor>
-            </Menu>
+            <Tiles flush={false} fill={true}>
+              <Tile>
+                <Button
+                  fill={true}
+                  label="Contribute"
+                  primary={true}
+                  href="https://github.com/dailydrip/ecto-activerecord"
+                />
+              </Tile>
+              <Tile>
+                <Button
+                  fill={true}
+                  label="Learn Elixir and Phoenix"
+                  href="https://www.dailydrip.com/topics/elixir"
+                />
+              </Tile>
+            </Tiles>
           </Footer>
           {/* <Box direction="row" pad={{ between: "medium" }}> */}
           {/*   <Paragraph margin="none">DailyDrip.com</Paragraph> */}
